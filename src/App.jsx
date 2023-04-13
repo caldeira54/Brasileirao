@@ -56,13 +56,14 @@ function App() {
                   </td>
                   <td>{time.posicao}</td>
                   <td>{time.time.nome_popular}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
-                  <td>{time.posicao}</td>
+                  <td>{time.pontos}</td>
+                  <td>{time.vitorias}</td>
+                  <td>{time.empates}</td>
+                  <td>{time.derrotas}</td>
+                  <td>{time.gols_pro}</td>
+                  <td>{time.gols_contra}</td>
+                  <td>{time.saldo_gols}</td>
+                  <td>{time.aproveitamento}</td>
                 </tr>
               ))}
             </tbody>
