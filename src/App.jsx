@@ -50,13 +50,22 @@ function App() {
             </thead>
             <tbody>
               {brasileirao.map((time, index) => (
-                <tr>
+                <tr
+                  key={index}
+                  className={`${index % 2 === 0 ? "odd" : "even"}
+                              ${index < 4 && 'libertadores'}
+                              ${index >= 4 && index <= 5 && 'pre-libertadores'}
+                              ${index >= 6 && index <= 11 && 'sula'}
+                              ${index >= 16 && 'z4'}
+                  `}
+                >
                   <td>
-                    <img src={time.time.escudo} alt={time.nome} width="30" height="30"/>
+                    <img src={time.time.escudo} alt={time.nome} width="30" height="30" />
                   </td>
                   <td>{time.posicao}</td>
                   <td>{time.time.nome_popular}</td>
                   <td>{time.pontos}</td>
+                  <td>{time.jogos}</td>
                   <td>{time.vitorias}</td>
                   <td>{time.empates}</td>
                   <td>{time.derrotas}</td>
@@ -68,6 +77,65 @@ function App() {
               ))}
             </tbody>
           </table>
+
+          <footer
+            style={{
+              fontFamily: 'Segoe UI',
+              fontSize: '12px',
+              color: '#333',
+              fontWeight: 'bold'
+            }}
+          >
+            <ul style={{ display: 'flex', justifyContent: 'center', listStyle: 'none', gap: '20px' }}>
+              <li style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{
+                  backgroundColor: '#00b16a',
+                  width: '10px', height: '10px',
+                  borderRadius: '50%',
+                  display: 'inline-block',
+                  marginRight: '5px'
+                }}>
+                </span>
+                <span>Fase de Grupos da Copa Libertadores</span>
+              </li>
+
+              <li style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{
+                  backgroundColor: '#0077c2',
+                  width: '10px', height: '10px',
+                  borderRadius: '50%',
+                  display: 'inline-block',
+                  marginRight: '5px'
+                }}>
+                </span>
+                <span>Pré-Libertadores</span>
+              </li>
+
+              <li style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{
+                  backgroundColor: '#f39c12',
+                  width: '10px', height: '10px',
+                  borderRadius: '50%',
+                  display: 'inline-block',
+                  marginRight: '5px'
+                }}>
+                </span>
+                <span>Fase de Grupos da Copa Sulamericana</span>
+              </li>
+
+              <li style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{
+                  backgroundColor: '#e74c3c',
+                  width: '10px', height: '10px',
+                  borderRadius: '50%',
+                  display: 'inline-block',
+                  marginRight: '5px'
+                }}>
+                </span>
+                <span>Rebaixamento</span>
+              </li>
+            </ul>
+          </footer>
         </>
       )}
     </div>
